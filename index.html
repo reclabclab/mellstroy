@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mellstroy — Tap Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Фон -->
+    <img src="foto/fonfoto.jpg" alt="фон" class="bg" />
+
+    <!-- Шапка -->
+    <header class="header">
+      <h1 class="logo" id="logo">Mellstroy</h1>
+      <div class="score">Монеты: <span id="score">0</span></div>
+    </header>
+
+    <!-- Игровая часть -->
+    <main class="main">
+      <div class="hero-wrap">
+        <!-- Важно: id="hero" — картинка меняется на скин -->
+        <img id="hero" src="foto/melfoto.jpg" alt="Mellstroy" class="hero" />
+        <div class="hero-hint">Нажми на Mellstroy</div>
+      </div>
+
+      <!-- Летающие деньги -->
+      <div id="money-layer"></div>
+    </main>
+
+    <!-- Нижнее меню -->
+    <nav class="bottom-nav">
+      <button class="nav-btn" id="friendsBtn">Друзья</button>
+      <button class="nav-btn" id="tasksBtn">Задания</button>
+      <button class="nav-btn" id="profileBtn">Профиль</button>
+      <button class="nav-btn" id="cardsBtn">Карточки</button>
+    </nav>
+  </div>
+
+  <!-- Модалка — Друзья -->
+  <div class="modal back hidden" id="modalFriends">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Друзья</h2>
+        <button class="btn ghost" id="closeFriends">Закрыть</button>
+      </div>
+      <p>Вы пригласили: <strong id="inviteCount">0</strong></p>
+      <div class="row">
+        <button class="btn primary" id="copyLinkBtn">Скопировать ссылку</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка — Задания -->
+  <div class="modal back hidden" id="modalTasks">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Задания</h2>
+        <button class="btn ghost" id="closeTasks">Закрыть</button>
+      </div>
+      <ul class="tasks-list">
+        <li>Нажми Mellstroy 10 раз — получишь <strong>+500</strong> монет</li>
+        <li>Пригласи 1 друга — получишь <strong>+1000</strong> монет</li>
+        <li>Сохрани ник — <strong>+200</strong> монет</li>
+      </ul>
+      <div class="row">
+        <button class="btn primary" id="claimTaskBtn">Выполнить первое</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка — Профиль -->
+  <div class="modal back hidden" id="modalProfile">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Профиль</h2>
+        <button class="btn ghost" id="closeProfile">Закрыть</button>
+      </div>
+
+      <!-- режим просмотра -->
+      <div id="profileInfo" class="profile-info hidden"></div>
+
+      <!-- режим редактирования -->
+      <div id="profileEdit" class="profile-row">
+        <div class="profile-controls" style="width:100%;">
+          <input id="nickInput" class="input" placeholder="Введите никнейм" />
+          <div class="row" style="margin-top:10px; display:flex; gap:8px;">
+            <button class="btn primary" id="saveProfileBtn">Сохранить</button>
+            <button class="btn ghost" id="editNickBtn" style="display:none;">Изменить ник</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка — Карточки -->
+  <div class="modal back hidden" id="modalCards">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Карточки Mellstroy</h2>
+        <button class="btn ghost" id="closeCards">Закрыть</button>
+      </div>
+
+      <p class="muted">Копи монеты и открывай эксклюзивные карточки 🔥</p>
+
+      <!-- Контейнер карточек -->
+      <div id="cardsContainer" class="cards-grid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
